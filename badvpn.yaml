@@ -1,0 +1,14 @@
+version: "3.7"
+services: 
+ badvpn-serv: 
+  image: xdcb/vpn:badvpn-udpgw
+  container_name: badvpnX
+  command: "$badvpnport"
+  privileged: true
+  network_mode: host
+  cap_add: 
+   - NET_ADMIN
+  ports: 
+   - "53:53"
+   - "7300:7300"
+  restart: always
